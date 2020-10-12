@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加课程</title>
+    <link href="{{ url_for('static',filename='css/show.css') }}" rel="stylesheet"/>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+    <div id="header" align="center">
+         <p><h2><img width="162px" height="38.5px" src="static/picture/logo.png" alt=""><span> | 教务管理系统</span></h2></p>
+    </div>
+    <div id="sidebar1" align="center">
+        <p align="center">
+            <h3>功能选择</h3><p><p>
+            <a href="/per">密码修改</a><p>
+            <a href="/">学生信息维护</a><p>
+            <a href="/mama">课程信息维护</a><p>
+        </p>
+    </div>
+    <div id="content" class="content">
+          <h3 style="font-size: 35px">请输入要插入课程的相关信息</h3>
+      <form id="form1" name="form1" method="post" action="/add-t">
+        <label>课程编号：
+        <input type="text" name="course_id"  />
+        </label>
+        <p>
+          <label>课序号：
+          <input type="text" name="course_order"  />
+          </label>
+        </p>
+        <p>
+          <label>课程名：
+          <input type="text" name="course_name"  />
+          </label>
+        </p>
+        <p>
+          <label>类型编号：
+           <select name="kind_id" >
+          {% for pro in datas -%}
+            <option value='{{pro[0]}}'>{{pro[1]}}</option>
+          {%endfor-%}
+          </select>
+          </label>
+        </p>
+
+        <p>
+          <label>学时：
+          <input type="text" name="course_hours"  />
+          </label>
+        </p>
+
+        <p>
+          <label>学分：
+          <input type="text" name="course_credit"  />
+          </label>
+        </p>
+        <p>
+          <label>任课教师编号：
+          <input type="text" name="teacher_id"  />
+          </label>
+        </p>
+        <p>
+          <label>开课：
+          <input type="text" name="course_credit"  />
+          </label>
+        </p>
+        <p>
+          <label>选课人数上限：
+          <input type="text" name="toplimit_num"  />
+          </label>
+        </p>
+        <p>
+          <label>开课学期：
+          <input type="text" name="class_date"  />
+          </label>
+        </p>
+
+        <p>
+          <label>
+          <input type="submit" name="button"  value="提交" />
+          </label>
+          <label>
+          <input type="reset" name="button2"  value="重置" />
+          </label>
+          <br />
+        </p>
+      </form>
+      <p>&nbsp; </p>
+          </div>
+      </div>
+
+</body>
+</html>

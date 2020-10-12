@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加课程</title>
+    <link href="{{ url_for('static',filename='css/show.css') }}" rel="stylesheet"/>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+    <div id="header" align="center">
+         <p><h2><img width="162px" height="38.5px" src="static/picture/logo.png" alt=""><span> | 学生选课系统</span></h2></p>
+    </div>
+    <div id="sidebar1" align="center">
+        <p align="center">
+            <h3>功能选择</h3><p><p>
+            <a href="/per">个人信息</a><p>
+            <a href="/">学生选课</a><p>
+            <a href="/rar">已选课程</a><p>
+            <a href="/fen">成绩查询</a><p>
+        </p>
+    </div>
+    <div id="content" class="content">
+        <p>
+          <h3 style="margin-left:50px">已选课程相关信息</h3>
+          <br>
+          <table class="table table-hover" style="margin-left:50px">
+                <tr>
+                    {% for a in fields %}
+                    <th>{{a}}</th>
+                    {% endfor %}
+                    <th>退课</th>
+                </tr>
+                {%for item in datas%}
+                <tr>
+                    {%for a in item%}
+                    <td>{{a}}</td>
+                    {% endfor %}
+<!--                    <td><a class="btn btn-primary btn-sm" href="add-t?id={{item[0]}}">选课</a></td>-->
+                    <td><a class="btn btn-primary btn-sm" href="del-t/{{item[0]}}">退课</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+      </div>
+</div>
+</body>
+</html>

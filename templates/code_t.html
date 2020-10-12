@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>密码修改</title>
+    <link href="{{ url_for('static',filename='css/show.css') }}" rel="stylesheet"/>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+    <div id="header" align="center">
+         <p><h2><img width="162px" height="38.5px" src="static/picture/logo.png" alt=""><span> | 教务系统教师端</span></h2></p>
+    </div>
+    <div id="sidebar1" align="center">
+        <p align="center">
+            <h3>功能选择</h3><p><p>
+            <a href="/per">个人信息</a><p>
+            <a href="/">开课信息查看</a><p>
+            <a href="/rar">已选学生名单</a><p>
+            <a href="/shit">成绩录入</a><p>
+        </p>
+    </div>
+    <div id="content" class="content">
+        <h3>请输入要更改的密码</h3>
+        <form id="form1" name="form1" method="post" action="/per" style="margin-left:50px">
+            <label>教师编号：{{data[0]}}
+                <input type="hidden" name="teacher_id" value='{{data[0]}}'/>
+            </label>
+            <p>
+                 <label>姓名：{{data[1]}}
+                <input type="hidden" name="teacher_name" value='{{data[1]}}'/>
+            </label>
+            </p>
+            <p>
+                <label>登录密码：
+                    <input type="text" name="teacher_pwd" value='{{data[3]}}'/>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="submit" name="button" value="提交"/>
+                </label>
+                <label>
+                    <input type="reset" name="button2" value="重置"/>
+                </label>
+                <br/>
+            </p>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

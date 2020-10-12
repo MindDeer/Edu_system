@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生信息</title>
+    <link href="{{ url_for('static',filename='css/show.css') }}" rel="stylesheet"/>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+    <div id="header" align="center">
+         <p><h2><img width="162px" height="38.5px" src="static/picture/logo.png" alt=""><span> | 教务管理系统</span></h2></p>
+    </div>
+    <div id="sidebar1" align="center">
+        <p align="center">
+            <h3>功能选择</h3><p><p>
+            <a href="/per">密码修改</a><p>
+            <a href="/">学生信息维护</a><p>
+            <a href="/mama">课程信息维护</a><p>
+        </p>
+    </div>
+    <div id="content" class="content">
+	<h3>请输入要更改学生的相关信息</h3>
+<form id="form1" name="form1" method="post" action="/update">
+    <label>学号：{{data[0]}}
+        <input type="hidden" name="Stu_id" value='{{data[0]}}'/>
+    </label>
+    <p>
+        <label>姓名：
+            <input type="text" name="Stu_name" value='{{data[1]}}'/>
+        </label>
+    </p>
+    <p>
+        <label>专业编号：
+            <select name="Pro_id">
+                {% for pr in pro %}
+                {% if pr[0]==data[2] %}
+                {% set selected="selected" %}
+                {% else %}
+                {% set selected="" %}
+                {% endif %}
+                <option value='{{pr[0]}}' {{selected}}>{{pr[0]}}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </p>
+    <p>
+        <label>性别：</label>
+        {% if data[3]=="男" %}
+        <label>
+            <input name="Stu_sex" type="radio" value="男" checked="checked"/>
+            男</label>
+        <label>
+            <input type="radio" name="Stu_sex" value="女"/>
+            女</label>
+        {%else%}
+        <label>
+            <input name="Stu_sex" type="radio" value="男"/>
+            男</label>
+        <label>
+            <input type="radio" name="Stu_sex" value="女" checked="checked"/>
+            女</label>
+        {%endif%}
+        <br/>
+    </p>
+    <p>
+        <label>出生日期：
+            <input type="text" name="stu_birth" value='{{data[4]}}'/>
+        </label>
+    </p>
+
+    <p>
+        <label>所属班级：
+            <select name="Class_id">
+                {% for pr in proo %}
+                {% if pr[0]==data[5] %}
+                {% set selected="selected" %}
+                {% else %}
+                {% set selected="" %}
+                {% endif %}
+                <option value='{{pr[0]}}' {{selected}}>{{pr[0]}}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </p>
+    <p>
+        <label>登录密码：
+            <input type="text" name="stu_pwd" value='{{data[6]}}'/>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input type="submit" name="button" value="提交"/>
+        </label>
+        <label>
+            <input type="reset" name="button2" value="重置"/>
+        </label>
+        <br/>
+    </p>
+</form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+
+ * {
+            margin: 0;
+            padding: 0;
+   }
+
+a:link {
+    color: #42413C;
+    text-decoration: underline; /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
+}
+a:visited {
+    color: #6E6C64;
+    text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
+    text-decoration: none;
+}
+
+#container {
+    margin: 0px auto;
+    width: 100%;
+    background-color: #FFF;
+    position: relative;
+
+}
+#header {
+    background-color:#1E90FF;
+    float: left;
+    height: 100px;
+    width:100%;
+}
+#sidebar1,#content{
+    padding-bottom:9999px; margin-bottom:-9995px;
+}
+#sidebar1 {
+    width:200px; float:left; background-color:#F0F8FF; line-height:20px; padding-left:5px;
+}
+#content {
+    width:800px; float:left; line-height:20px;
+}
+#footer {
+    background-color: #ADB96E;
+    height:10px;
+    float: left;
+    width:100%;
+}
